@@ -1,0 +1,15 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-init.sh:/docker-entrypoint-initdb.d/postgres-init.sh
+  elasticsearch:
+    image: elasticsearch:5.4
+    ports:
+      - "9200:9200"
